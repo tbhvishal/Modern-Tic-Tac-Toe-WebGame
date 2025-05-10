@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tic Tac Toe game with customizable colors and sounds by Vishal Sharma.">
+    <meta name="author" content="Vishal Sharma">
+    <title>Tic Tac Toe Game</title>
+    <link rel="icon" href="assets/images/mainlogo.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe Game</h1>
+        <div class="color-picker">
+            <label>X Color: <input type="color" id="x-color" value="#e74c3c"></label>
+            <label>O Color: <input type="color" id="o-color" value="#3498db"></label>
+        </div>
+        <div id="status">Player X's Turn</div>
+        <div id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+            <div id="win-line"></div>
+        </div>
+        <div class="buttons">
+            <button id="reset">Reset Game</button>
+            <button id="theme-toggle">Dark Mode</button>
+        </div>
+    </div>
+
+    <footer style="text-align: center; margin-top: 30px;">
+        Code With ❣️ By Vishal Sharma
+        <div class="social-links" style="margin-top: 10px;">
+            <a href="https://github.com/tbhvishal" target="_blank" style="margin: 0 10px; text-decoration: none; color: inherit;">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a href="https://linkedin.com/in/vishalsharmax" target="_blank" style="margin: 0 10px; text-decoration: none; color: inherit;">
+                <i class="fab fa-linkedin fa-2x"></i>
+            </a>
+        </div>
+    </footer>
+
+    <audio id="move-sound" preload="auto" src="assets/audio/click.mp3"></audio>
+    <audio id="win-sound" preload="auto" src="assets/audio/win.mp3"></audio>
+    <audio id="draw-sound" preload="auto" src="assets/audio/draw.mp3"></audio>
+    <audio id="start-sound" preload="auto" src="assets/audio/start.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
