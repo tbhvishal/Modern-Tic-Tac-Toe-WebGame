@@ -5,6 +5,10 @@ A modern, responsive Tic Tac Toe web game built with HTML, CSS, and JavaScript �
 
 ![App Screenshot](assets/screenshot.png)
 
+## 🔗 Live Demo
+
+🎮 Try it out here on live running website: [Modern-Tic-Tac-Toe-WebGame](https://tbhvishal.github.io/Modern-Tic-Tac-Toe-WebGame/)
+
 ## Features
 
 - **Interactive Gameplay**: Clickable grid with real-time win detection and draw handling.
@@ -32,7 +36,7 @@ cd Modern-Tic-Tac-Toe-WebGame
 
 ### Step 3: Open the game
 
-You can open `index.html` directly in any modern web browser (Chrome, Firefox, Edge, etc.):
+You can open `index.html` directly in any modern web browser (Chrome, Firefox, Edge, etc.):  
 
 ```bash
 start index.html     # Windows
