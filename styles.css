@@ -72,8 +72,11 @@ body.dark::after {
     margin: 20px;
     z-index: 1;
     position: relative;
-    max-width: 400px;
+    max-width: 450px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body.dark .container {
@@ -172,36 +175,38 @@ body.dark #status {
 }
 
 #board {
+    --board-size: min(80vw, 400px); /* Responsive board size */
+    width: var(--board-size);
+    height: var(--board-size);
     display: grid;
-    grid-template-columns: repeat(3, 100px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-gap: 6px;
     background-color: #dfe4ea;
-    padding: 20px;
+    padding: 6px;
     border-radius: 12px;
     position: relative;
     margin: 0 auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.3s, box-shadow 0.3s; 
+    transition: background-color 0.3s, box-shadow 0.3s;
     z-index: 2;
     border: 3px solid #b2bec3;
-    border-radius: 12px;
-    justify-content: center;
-    
 }
 
 body.dark #board {
     background-color: #636e72;
+    border-color: #2d3436;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     background-color: #fff;
     border: 3px solid #b2bec3;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5em;
+    font-size: calc(var(--board-size) / 6); /* Scale font with board */
     font-family: 'Orbitron', sans-serif;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -241,6 +246,7 @@ body.dark .cell:hover:not(.x):not(.o) {
     transform-origin: 0 0;
     transition: width 0.5s ease-in-out;
     z-index: 3;
+    height: 10px; /* Fixed thickness */
 }
 
 #win-line.x {
@@ -303,17 +309,15 @@ body.dark footer {
 
 @media (max-width: 600px) {
     #board {
-        grid-template-columns: repeat(3, 80px);
+        --board-size: min(90vw, 320px);
     }
     .cell {
-        width: 80px;
-        height: 80px;
-        font-size: 2em;
-        box-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
+        font-size: calc(var(--board-size) / 6);
         border-width: 2px;
+        box-shadow: 0 0 6px rgba(0, 255, 255, 0.3);
     }
     body.dark .cell {
-        box-shadow: 0 0 6px rgba(255, 0, 255, 0.3);
+        box-shadow: 0 0 6px rgba(26, 163, 255, 0.459);
     }
     .container {
         margin: 15px;
@@ -333,17 +337,15 @@ body.dark footer {
 
 @media (max-width: 400px) {
     #board {
-        grid-template-columns: repeat(3, 60px);
+        --board-size: min(90vw, 240px);
     }
     .cell {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5em;
-        box-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
+        font-size: calc(var(--board-size) / 6);
         border-width: 2px;
+        box-shadow: 0 0 4px rgba(0, 255, 255, 0.3);
     }
     body.dark .cell {
-        box-shadow: 0 0 4px rgba(255, 0, 255, 0.3);
+        box-shadow: 0 0 4px rgba(26, 163, 255, 0.459);
     }
     .container {
         margin: 10px;

@@ -138,10 +138,11 @@ function checkDraw() {
 function drawWinLine(cells) {
     const first = cells[0];
     const last = cells[cells.length - 1];
-    const cellSize = parseInt(getComputedStyle(document.querySelector(".cell")).width);
+    const board = document.querySelector("#board");
+    const boardSize = parseFloat(getComputedStyle(board).width); // Total board width
     const gap = 6; // Grid gap
-    const boardPadding = 6; // Board padding
-    const totalBoardSize = cellSize * 3 + gap * 2; // Total width/height of grid
+    const padding = 6; // Board padding
+    const cellSize = (boardSize - 2 * padding - 2 * gap) / 3; // Calculate cell size
 
     let x1, y1, x2, y2, width, height, rotate;
 
@@ -152,21 +153,21 @@ function drawWinLine(cells) {
     const lastCol = last % 3;
 
     // Cell center coordinates
-    x1 = boardPadding + firstCol * (cellSize + gap) + cellSize / 2;
-    y1 = boardPadding + firstRow * (cellSize + gap) + cellSize / 2;
-    x2 = boardPadding + lastCol * (cellSize + gap) + cellSize / 2;
-    y2 = boardPadding + lastRow * (cellSize + gap) + cellSize / 2;
+    x1 = padding + firstCol * (cellSize + gap) + cellSize / 2;
+    y1 = padding + firstRow * (cellSize + gap) + cellSize / 2;
+    x2 = padding + lastCol * (cellSize + gap) + cellSize / 2;
+    y2 = lastRow * (cellSize + gap) + cellSize / 2;
 
     if (first % 3 === last % 3) { // Column
         width = 10;
-        height = totalBoardSize;
+        height = boardSize - 2 * padding;
         x1 = x1; // Center of column
-        y1 = boardPadding;
+        y1 = padding;
         rotate = 0;
     } else if (Math.floor(first / 3) === Math.floor(last / 3)) { // Row
-        width = totalBoardSize;
+        width = boardSize - 2 * padding;
         height = 10;
-        x1 = boardPadding;
+        x1 = padding;
         y1 = y1; // Center of row
         rotate = 0;
     } else { // Diagonals
@@ -187,7 +188,6 @@ function drawWinLine(cells) {
         winLine.style.width = `${width}px`;
     }, 10);
 }
-
 function createParticles() {
     const particleContainer = document.createElement("div");
     particleContainer.className = "particles";
