@@ -180,6 +180,12 @@ body.dark #status {
     border-radius: 12px;
     position: relative;
     margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, box-shadow 0.3s; 
+    z-index: 2;
+    border: 3px solid #b2bec3;
+    border-radius: 12px;
+    justify-content: center;
 }
 
 body.dark #board {
